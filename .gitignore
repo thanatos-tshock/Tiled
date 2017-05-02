@@ -1,0 +1,7 @@
+/Tiled/bin
+/Tiled/obj
+*.suo
+/*.user
+packages/
+References/
+.vs/
