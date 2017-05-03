@@ -25,12 +25,12 @@ namespace Tiled.TwoDimensions
 					this._height = Main.maxTilesY + 1;
 				}
 
-				return new TwoDimensionTileReference(data, (short)x, (short)y);
+				return new TwoDimensionTileReference(data, x, y);
 			}
 
 			set
 			{
-				(new TwoDimensionTileReference(data, (short)x, (short)y)).CopyFrom(value);
+				(new TwoDimensionTileReference(data, x, y)).CopyFrom(value);
 			}
 		}
 

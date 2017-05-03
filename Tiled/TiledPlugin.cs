@@ -18,18 +18,19 @@ namespace Tiled
     /// ** excludes internal array initialisation
     /// 
     /// 1dTile:
-    /// 8 instructions used to get a tile from the provider
-    /// 10 instructions used to set a tile into the provider
+    /// 6 instructions used to get a tile from the provider
+    /// 8 instructions used to set a tile into the provider
     /// 1d stores tiles in one flat array, using one int32 index.
     /// 
     /// 2dTile:
-    /// 8 instructions used to get a tile from the provider
-    /// 10 instructions used to set a tile into the provider
-    /// 2d stores tiles using two dimensions, using two int16 indexes
+    /// 6 instructions used to get a tile from the provider
+    /// 8 instructions used to set a tile into the provider
+    /// 2d stores tiles using two dimensions, using two int32 indexes
+    /// Using int32 instead of int16 because array indexers require int32, which also saves 2 instructions per access
     /// 
     /// Structured:
-    /// 9 instructions used to get a tile from the provider
-    /// 12 instructions used to set a tile into the provider
+    /// 7 instructions used to get a tile from the provider
+    /// 10 instructions used to set a tile into the provider
     /// Structured stores tiles in one flat array, using one int32 index - similar to 1d
     /// 
     /// TSAPI's HeapTile provider:
@@ -43,7 +44,7 @@ namespace Tiled
         public override string Author => "thanatos";
         public override string Description => "Provides alternate memory usage and performance optimisations";
         public override string Name => "Tiled";
-        public override Version Version => new Version(1, 0, 0, 0);
+        public override Version Version => typeof(TiledPlugin).Assembly.GetName().Version;
 
         public bool AcceptedWarning { get; set; }
 
@@ -136,6 +137,7 @@ namespace Tiled
                 case "1d":
                     return new OneDimensionTileProvider();
 
+                case "struct":
                 case "structured":
                     return new Structured1DTileProvider();
             }

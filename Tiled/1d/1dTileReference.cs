@@ -48,15 +48,6 @@ namespace Tiled.OneDimension
             }
         }
 
-        public const int kHeapTileWallOffset = 2;
-        public const int kHeapTileLiquidOffset = 3;
-        public const int kHeapTileSTileHeaderOffset = 4;
-        public const int kHeapTileBTypeHeaderOffset = 6;
-        public const int kHeapTileBTypeHeader2Offset = 7;
-        public const int kHeapTileBTypeHeader3Offset = 8;
-        public const int kHeapTileFrameXOffset = 9;
-        public const int kHeapTileFrameYOffset = 11;
-
         public ushort type
         {
             get { return data[offset].type; }
@@ -77,32 +68,7 @@ namespace Tiled.OneDimension
 
         public short sTileHeader
         {
-            get
-            {
-                //try
-                //{
-                return data[offset].sTileHeader;
-                //}
-                //catch (System.Exception ex)
-                //{
-                //	try
-                //	{
-                //		System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace(ex);
-                //		string stackTrace = "";
-                //		foreach (System.Diagnostics.StackFrame frame in st.GetFrames())
-                //		{
-                //			stackTrace = "at " + frame.GetMethod().Module.Name + "." +
-                //				frame.GetMethod().ReflectedType.Name + "."
-                //				+ frame.GetMethod().Name
-                //				+ "  (IL offset: 0x" + frame.GetILOffset().ToString("x") + ")\n" + stackTrace;
-                //		}
-                //		System.Console.Write(stackTrace);
-                //	}
-                //	catch { }
-                //	System.Console.WriteLine("Tile offset: " + this.offset);
-                //	throw;
-                //}
-            }
+            get { return data[offset].sTileHeader; }
             set { data[offset].sTileHeader = value; }
         }
 
@@ -139,15 +105,10 @@ namespace Tiled.OneDimension
         internal readonly int offset;
         private StructTile[] data;
 
-        public OneDimensionTileReference(StructTile[] data, short x, short y)
+        public OneDimensionTileReference(StructTile[] data, int x, int y) // not shorts because I rather save a number of convert opcodes
         {
             this.offset = Terraria.Main.maxTilesY * x + y;
             this.data = data;
-
-            //if (this.offset < 0 || this.offset > data.Length)
-            //{
-            //	System.Console.WriteLine("Invalid struct tile offset at x/y" + x + '/' + y);
-            //}
         }
 
         public object Clone()

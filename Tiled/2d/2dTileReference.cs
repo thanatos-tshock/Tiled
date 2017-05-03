@@ -4,7 +4,6 @@ using Terraria;
 
 namespace Tiled.TwoDimensions
 {
-
     public sealed class TwoDimensionTileReference : ITile
     {
         public const int Type_Solid = 0;
@@ -103,10 +102,10 @@ namespace Tiled.TwoDimensions
             set { data[x, y].frameY = value; }
         }
 
-        internal readonly short x, y;
+        internal readonly int x, y;
         private StructTile[,] data;
 
-        public TwoDimensionTileReference(StructTile[,] data, short x, short y)
+        public TwoDimensionTileReference(StructTile[,] data, int x, int y) // not shorts because they will be converted to an int when accessing arrays
         {
             this.x = x;
             this.y = y;
