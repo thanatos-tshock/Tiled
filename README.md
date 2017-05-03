@@ -20,10 +20,11 @@ This is where my versions step in, they aim to give you the best of both worlds.
 
 ### What provider should I use?
 Generally using the 1d or 2d will suffice as they are nearly the exact same thing, however you might want to trial each version to see which runs best on your machine.
-Below is a short non-technical comparison of my providers:
+Below is a short non-technical comparison of the providers:
 
-- 1d 		- stores the data in one location and each 1d tile will access the data using **ONE** offset
-- 2d 		- stores the data in one location and each 2d tile will access the data using **TWO** coordinates (x,y)
-- struct	- the same setup as a 1d tile, but is an experimental version that 
+- 1d - stores the data in one location and each 1d tile will access the data using **ONE** offset
+- 2d - stores the data in one location and each 2d tile will access the data using **TWO** coordinates (x,y)
+- struct - the same setup as a 1d tile, but is an experimental version.
+- tsapi - this is tshocks HeapTile implementation that uses a lot of math to calculate data offsets, which results in slower execution.
 
 For a slightly more technical explanation see the comments at the top of the file [here](https://github.com/thanatos-tshock/Tiled/blob/master/Tiled/TiledPlugin.cs).
