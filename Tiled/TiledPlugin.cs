@@ -60,7 +60,7 @@ namespace Tiled
             var argumentIndex = Array.FindIndex(args, x => x.ToLower() == "-tiled");
             if (argumentIndex > -1)
             {
-                argumentIndex++; // we want the next value, not the assembly being executed
+                argumentIndex++;
 
                 if (argumentIndex < args.Length)
                 {
