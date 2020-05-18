@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 
 namespace Tiled
 {
@@ -8,7 +8,7 @@ namespace Tiled
 	[StructLayout(LayoutKind.Sequential, Size = 13, Pack = 1)]
 	public struct StructTile
 	{
-		public byte wall;
+		public ushort wall;
 		public byte liquid;
 		public byte bTileHeader;
 		public byte bTileHeader2;
