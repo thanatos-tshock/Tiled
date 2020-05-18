@@ -1,4 +1,4 @@
-﻿using OTAPI.Tile;
+using OTAPI.Tile;
 using System;
 using Terraria;
 using TerrariaApi.Server;
@@ -159,35 +159,35 @@ namespace Tiled
             //	return false;
             //}
 
-            //todo transfer + unload if during game
-            if (Netplay.IsServerRunning)
-            {
-                if (Terraria.Main.tile != null)
-                {
-                    int x = 0;
-                    int y = 0;
-                    try
-                    {
-                        // trigger our internals to generate the data store
-                        provider[0, 0].ClearTile();
+            ////todo transfer + unload if during game
+            //if (Netplay.IsListening)
+            //{
+            //    if (Terraria.Main.tile != null)
+            //    {
+            //        int x = 0;
+            //        int y = 0;
+            //        try
+            //        {
+            //            // trigger our internals to generate the data store
+            //            provider[0, 0]?.ClearTile();
 
-                        x = 0;
-                        for (x = 0; x < Terraria.Main.maxTilesX; x++)
-                        {
-                            y = 0;
-                            for (y = 0; y < Terraria.Main.maxTilesY; y++)
-                            {
-                                provider[x, y] = Terraria.Main.tile[x, y];
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error @{x}x{y}\n{ex}");
-                        return false;
-                    }
-                }
-            }
+            //            x = 0;
+            //            for (x = 0; x < Terraria.Main.maxTilesX; x++)
+            //            {
+            //                y = 0;
+            //                for (y = 0; y < Terraria.Main.maxTilesY; y++)
+            //                {
+            //                    provider[x, y] = Terraria.Main.tile[x, y];
+            //                }
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine($"Error @{x}x{y}\n{ex}");
+            //            return false;
+            //        }
+            //    }
+            //}
 
             var previous = Terraria.Main.tile as IDisposable;
             Terraria.Main.tile = provider;
