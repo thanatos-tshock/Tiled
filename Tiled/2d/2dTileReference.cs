@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using OTAPI.Tile;
 using Terraria;
 using Terraria.DataStructures;
 
@@ -104,7 +103,7 @@ namespace Tiled.TwoDimensions
         }
 
         internal readonly int x, y;
-        private StructTile[,] data;
+        private readonly StructTile[,] data;
 
         public TwoDimensionTileReference(StructTile[,] data, int x, int y) // not shorts because they will be converted to an int when accessing arrays
         {
