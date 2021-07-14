@@ -1,14 +1,16 @@
-# Tiled plugin for TShock 
+# Tiled plugin for OTAPI3 
 Provides alternate tile implementations which improve performance and memory usage
 
 
-Simply put Tiled.dll into your ServerPlugins folder. By default it will run the 1d tile provider, but you can use the **ONE** of the following command line arguments to switch to another provider:
+Simply put Tiled.dll into your `modifications` folder. By default it will run the 1d tile provider, but you can use the **ONE** of the following command line arguments to switch to another provider:
+
+Note: This is an experimental version, mainly due to experimenting with the new OTAPI3 platform.
 
 ```
 -tiled 1d     # uses the 1d provider
 -tiled 2d     # uses the 2d provider
 -tiled struct # uses the struct provider
--tiled tsapi  # uses tshocks default implementation
+-tiled tsapi  # uses tshocks default implementation     NOTE: only available when TShock is used.
 ```
 
 ### How do these new providers differ from Re-Logic and TShock HeapTile implementations?
