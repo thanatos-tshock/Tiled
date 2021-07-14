@@ -1,10 +1,10 @@
-﻿using OTAPI.Tile;
+using ModFramework;
 using System;
 using Terraria;
 
 namespace Tiled.OneDimension
 {
-    public class OneDimensionTileProvider : ITileCollection, IDisposable
+    public class OneDimensionTileProvider : ICollection<ITile>, IDisposable
     {
         private StructTile[] data;
         private int _width;
