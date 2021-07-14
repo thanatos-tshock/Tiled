@@ -9,7 +9,7 @@ using Tiled.TwoDimensions;
 namespace Tiled
 {
     /// <summary>
-    /// The tiled plugin which will be loaded into a TSAPI server.
+    /// The tiled plugin which will be loaded into a OTAPI3 server.
     /// It serves to bootstrap one tile provider.
     /// </summary>
     /// <remarks>
@@ -40,7 +40,7 @@ namespace Tiled
     /// </remarks>
     public class Tiled
     {
-        [Modification(ModType.Runtime, "Loading Runtime Example!")]
+        [Modification(ModType.Runtime, "Tiled plugin")]
         public static void OnRunning()
         {
             string tileImplementation = null;
@@ -62,11 +62,7 @@ namespace Tiled
             }
 
             var provider = ParseProviderName(tileImplementation);
-            if (provider == null)
-            {
-                provider = new OneDimensionTileProvider();
-            }
-            SetProvider(provider);
+            SetProvider(provider ?? new OneDimensionTileProvider());
 
             Console.WriteLine($"Using tile provider: {Terraria.Main.tile.GetType().Name}");
         }
