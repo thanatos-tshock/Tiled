@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using OTAPI.Tile;
 using Terraria;
 using Terraria.DataStructures;
 
@@ -105,7 +104,7 @@ namespace Tiled.Struct
         }
 
         internal readonly int offset;
-        private StructTile[] data;
+        private readonly StructTile[] data;
 
         public StructuredTileReference(StructTile[] data, int x, int y) // not shorts because I rather save a number of convert opcodes
         {
