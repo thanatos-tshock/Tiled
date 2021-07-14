@@ -1,10 +1,10 @@
-﻿using OTAPI.Tile;
+using ModFramework;
 using System;
 using Terraria;
 
 namespace Tiled.TwoDimensions
 {
-    public class TwoDimensionTileProvider : ITileCollection, IDisposable
+    public class TwoDimensionTileProvider : ICollection<ITile>, IDisposable
 	{
 		private StructTile[,] data;
 		private int _width;
