@@ -9,6 +9,6 @@
 	  <None Remove="TShock" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="TShock" Version="5.0.0-beta" />
+	  <PackageReference Include="TShock" Version="5.2.2" />
 	</ItemGroup>
 </Project>
